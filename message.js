@@ -12,4 +12,20 @@ const messageCreator = () => {
     return `Workout Option: ${repetitions} by ${distance} on ${terrainType}`;
 };
 
-console.log(messageCreator());
+const workoutOptions = () => {
+    let workoutOptionArr = [];
+    let workoutString;
+    while (workoutOptionArr.length < 3) {
+        workoutString = messageCreator();
+        while (workoutOptionArr.includes(workoutString)) {
+            workoutString = messageCreator();
+        };
+        workoutOptionArr.push(workoutString);
+    };
+    return workoutOptionArr;
+}
+
+const workouts = workoutOptions();
+console.log(workouts[0]);
+console.log(workouts[1]);
+console.log(workouts[2]);
